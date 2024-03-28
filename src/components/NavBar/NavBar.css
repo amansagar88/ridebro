@@ -1,0 +1,98 @@
+.Nav-Bar{
+    margin-top: 2dvh;
+    height: 10dvh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    font-size: larger;
+    position: sticky;
+}
+
+.logo-img{
+    height: 15dvh;
+    filter: drop-shadow(8px 8px 2px #5aa0d19e);
+}
+
+.brandname{
+    font-size: x-large;
+    color: red;
+    font-weight: bolder;
+    margin-top: 2dvh;
+    margin-left: -1.5dvw;
+}
+
+.Nav-links{
+    font-weight: bolder;
+}
+
+.nav-link{
+    margin-left: 2dvw;
+    margin-right: 2dvw;
+}
+
+.Nav-links li a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-logo{
+    margin-top: -2dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* mobile nav bar */
+
+.mobile-navbar{
+  display: none;
+  background-color: white;
+}
+
+.navbar-toggler-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='black' stroke-width='2' stroke-linecap='round' d='M4 8h24M4 16h24M4 24h24'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container-fluid{
+  background-color: white;
+}
+
+#navbarNav ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#navbarNav a{
+  color: black;
+  font-weight: bolder;
+  
+}
+
+@media screen and (max-width: 768px) {
+  .Nav-Bar{
+      display: none;
+  }
+  .mobile-navbar{
+    display: block;
+  }
+  .logo-img{
+    height: 10dvh;
+  }
+}
