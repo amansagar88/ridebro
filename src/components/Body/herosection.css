@@ -1,0 +1,25 @@
+.main-desktop-body{
+    display: grid;
+    height: 85dvh;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-area{
+    padding: 3rem;
+}
+
+.img-area img{
+    height: 65dvh;
+    width: 56dvw;
+}
+
+@media screen and (max-width: 768px) {
+    .main-desktop-body{
+        display: none;
+    }
+    .contact-area{
+        display: block;
+    }
+}
