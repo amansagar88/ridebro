@@ -7,12 +7,26 @@
 }
 
 .contact-area{
-    padding: 3rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-area p{
+    padding: 2rem;
+    text-align: justify;
+    /* text-align: center; */
 }
 
 .img-area img{
     height: 65dvh;
     width: 56dvw;
+}
+
+.mobile-contant-area{
+    display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -21,5 +35,19 @@
     }
     .contact-area{
         display: block;
+    }
+
+    .mobile-contant-area{
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .mobile-contant-area p{
+        padding: 1.5rem;
+        text-align: justify;
+        /* text-align: center; */
     }
 }

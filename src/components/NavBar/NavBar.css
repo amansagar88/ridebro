@@ -1,14 +1,12 @@
 .Nav-Bar {
-  /* margin-top: 2dvh; */
-  /* margin-bottom: 3dvh; */
-  height: 15dvh;
+  height: 13dvh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
   font-size: larger;
   /* position: sticky; */
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.493);
 }
 
 .logo-img {
