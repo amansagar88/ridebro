@@ -9,14 +9,10 @@ export default function HeroSection() {
           <h1>Share the Ride, Share the Future</h1>
           <p>
             Welcome to our ride-sharing platform, where convenience meets
-            sustainability. Tired of battling traffic? Our efficient routes help
-            you beat the rush while reducing your carbon footprint, paving the
-            way for a greener future. Plus, why not turn your daily commute into
-            a money-making opportunity? Earn extra cash by offering rides to
-            fellow travelers. But it's not just about the savings; it's about
-            building connections and a sense of community. Join us today to
-            experience the benefits firsthand and embark on a journey towards a
-            better tomorrow.
+            sustainability. Tired of battling traffic? Why not use our platform
+            to share empty seats of your vehicle which help you generate some
+            side money too.Join us today to experience the benefits firsthand
+            and embark on a journey towards a better tomorrow.
           </p>
           <button type="button" class="btn btn-primary">
             JOIN US FOR FREE

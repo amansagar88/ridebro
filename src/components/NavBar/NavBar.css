@@ -1,11 +1,13 @@
 .Nav-Bar {
+  background-color: white;
   height: 13dvh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
   font-size: larger;
-  /* position: sticky; */
+  position: sticky;
+  top: 0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.493);
 }
 
@@ -54,6 +56,8 @@
 .mobile-navbar {
   display: none;
   background-color: white;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-toggler-icon {
