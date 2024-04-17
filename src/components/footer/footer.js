@@ -9,7 +9,7 @@ export default function Footer() {
                 <div class="foot-links">
                     <div id="foot-logo" class="foot-content">
                         <img src={require("./src/brandname.png")} alt='f'/>
-                            <span>Ride Bro</span>
+                            <span>RIDE BRO</span>
                     </div>
                     <div id="connect-links" class="foot-content">
                         <span>Connect with us</span>

@@ -73,6 +73,10 @@ body::-webkit-scrollbar{
     flex-direction: column;
 }
 
+#foot-logo span{
+    color: red;
+}
+
 .foot-content span{
     font-size: 25px;
     font-weight: bolder;
