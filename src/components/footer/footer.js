@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <div className="foot">
       <footer>
-            <div class="foot-bar">
-                <div class="foot-links">
-                    <div id="foot-logo" class="foot-content">
+            <div className="foot-bar">
+                <div className="foot-links">
+                    <div id="foot-logo" className="foot-content">
                         <img src={require("./src/brandname.png")} alt='f'/>
                             <span>RIDE BRO</span>
                     </div>
-                    <div id="connect-links" class="foot-content">
+                    <div id="connect-links" className="foot-content">
                         <span>Connect with us</span>
                         <ul>
                             <li><a id="youtube-link" href="/"
@@ -28,7 +28,7 @@ export default function Footer() {
                                 target="_blank">Instagram</a> <img src={require("./src/brand-instagram.png")} alt='f'/></li>
                         </ul>
                     </div>
-                    <div id="pages-link" class="foot-content">
+                    <div id="pages-link" className="foot-content">
                         <span>Essential Pages</span>
                         <ul>
                             <li><img src={require("./src/chevron-right.png")} alt='f'/><a href="/">Privacy Policy</a></li>
@@ -37,7 +37,7 @@ export default function Footer() {
                             <li><img src={require("./src/chevron-right.png")} alt='f'/><a href="/">Affiliate Disclosure</a></li>
                         </ul>
                     </div>
-                    <div id="emai-links" class="foot-content">
+                    <div id="emai-links" className="foot-content">
                         <span>Get in touch</span>
                         <ul>
                             <li><img src={require("./src/mail-filled.png")} alt='f'/><a
@@ -47,7 +47,7 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
-                <div class="copyright-section">
+                <div className="copyright-section">
                     <span>Copyright &copy; 2024 Ride Bro</span>
                 </div>
             </div>

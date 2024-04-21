@@ -1,5 +1,7 @@
+'use client'
 import React from "react";
 import "./NavBar.css";
+// import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -17,30 +19,30 @@ export default function NavBar() {
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
-                HOME
+                Home
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                ABOUT US
+                Search a Ride
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                CONTACT US
+                Publish a Ride
               </a>
             </li>
           </ul>
         </div>
         <div className="login-button">
-          <button type="button" class="btn btn-primary">
+          <button type="button" className="btn btn-primary">
             LOGIN
           </button>
         </div>
       </div>
       {/* mobile nav bar */}
-      <div class="navbar navbar-expand-lg navbar-light bg-light mobile-navbar">
-        <div class="container-fluid">
+      <div className="navbar navbar-expand-lg navbar-light bg-light mobile-navbar">
+        <div className="container-fluid">
           <img
             className="logo-img"
             src={require("./images/logo.png")}
@@ -48,7 +50,7 @@ export default function NavBar() {
           />
           <span className="brandname">RIDE BRO</span>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -56,24 +58,31 @@ export default function NavBar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/home">
-                  HOME
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/">
-                  ABOUT US
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Search a Ride
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/">
-                  CONTACT US
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Publish a Ride
                 </a>
+              </li>
+              <li>
+                <div className="login-button">
+                  <button type="button" className="btn btn-primary">
+                    LOGIN
+                  </button>
+                </div>
               </li>
             </ul>
           </div>

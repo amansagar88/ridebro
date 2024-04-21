@@ -1,6 +1,6 @@
 .Nav-Bar {
   background-color: white;
-  height: 13dvh;
+  height: 12.5dvh;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr;
