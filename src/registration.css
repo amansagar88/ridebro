@@ -1,12 +1,68 @@
 .rMain{
+    width: 100dvw;
+    height: 87dvh;
+    background-image: linear-gradient(to right, rgb(7, 11, 132), rgb(46, 193, 241));
+    padding: 5dvh;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    width: 100dvw;
-    height: 100dvh;
-    background-color: rgba(78, 199, 220, 0.744);
 }
 
-.rRight{
-    /* width: ; */
+.mLeft{
+    background: transparent;
+    color: white;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.mLeft p{
+    padding: 0.7cm 2cm 0.7cm 2cm;
+}
+
+.mRight{
+    background-color: rgba(254, 250, 250, 0.947);
+    border-radius: 5dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer{
+    width: 100%;
+    height: 100%;
+    padding: 5dvh 10dvh 5dvh 10dvh;
+    margin-top: 10dvh;
+}
+
+.formContainer h1{
+    margin-bottom: 5dvh;
+}
+
+.formContainer input{
+    border-radius: 5dvw;
+    padding-left: 1dvw;
+    height: 5dvh;
+}
+
+.formContainer select{
+    border-radius: 5dvw;
+    padding-left: 1dvw;
+    height: 5dvh;
+}
+
+.formContainer select:hover{
+    cursor: pointer;
+}
+
+.Rform{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1cm;
+    row-gap: 1cm;
+}
+
+/* .formContainer img{
+    height: 10dvh;
+} */

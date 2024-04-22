@@ -36,10 +36,8 @@ export default function HeroSection() {
           money too.Join us today to experience the benefits firsthand and
           embark on a journey towards a better tomorrow.
         </p>
-        <Link to="/registration">
-            <button type="button" className="btn btn-primary">
+        <Link to="/registration" className="btn btn-primary mbutton">
               JOIN US FOR FREE
-            </button>
         </Link>
       </div>
     </>

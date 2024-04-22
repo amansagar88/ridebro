@@ -18,7 +18,7 @@ export default function NavBar() {
         <div className="Nav-links">
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className="nav-link active" href="/">
                 Home
               </a>
             </li>
