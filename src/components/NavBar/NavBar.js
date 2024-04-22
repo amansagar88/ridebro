@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 export default function NavBar() {
@@ -23,21 +24,23 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/searchride">
                 Search a Ride
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/createride">
                 Publish a Ride
               </a>
             </li>
           </ul>
         </div>
         <div className="login-button">
+          <a href="/login">
           <button type="button" className="btn btn-primary">
             LOGIN
           </button>
+          </a>
         </div>
       </div>
       {/* mobile nav bar */}
