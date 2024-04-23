@@ -1,7 +1,16 @@
-.Lcontainer{
-    height: 100dvh;
-    width: 100dvw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.Lform{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 3dvh;
+    padding: 5dvh 0dvh 5dvh 0dvh;
+}
+
+.Lright{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Lright button{
+    /* width: 5dvw; */
+    /* justify-self: center; */
 }
