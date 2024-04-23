@@ -14,8 +14,8 @@ import Searchride from "./searchride";
 export default function App() {
   return(
   <>
-    <NavBar />
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route path="/"  element={<HeroSection />} />
         <Route path="/registration" element={<Registration />} />

@@ -23,6 +23,7 @@
 .img-area img{
     height: 65dvh;
     width: 56dvw;
+    object-fit: contain;
 }
 
 .mobile-contant-area{

@@ -80,7 +80,7 @@ export default function Registration() {
           <h1>Welcome</h1>
           <p>You are some steps away from becoming a part of our community.</p>
           <h6>Already a registered then..</h6>
-          <Link to="/" className="btn btn-primary mbutton">
+          <Link to="/login" className="btn btn-primary mbutton">
             Login
           </Link>
         </div>
