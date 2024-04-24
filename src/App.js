@@ -1,5 +1,4 @@
-// App.js
-// import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -10,8 +9,20 @@ import Registration from "./registraction";
 import Login from "./login";
 import Createride from "./createride";
 import Searchride from "./searchride";
+import axios from "axios";
 
 export default function App() {
+  const [data, setdate] = useState("");
+
+  const getData = async()=>{
+    const response = await axios.get("https://ridebrowithbackend.vercel.app/getData");
+    setdate(response.data);
+  }
+
+  useEffect( () => {
+    getData();
+  }, []);
+
   return(
   <>
     <BrowserRouter>
@@ -25,6 +36,7 @@ export default function App() {
       </Routes>
     </BrowserRouter>
     <Footer />
+    <div>{data}</div>
   </>
   );
 }
