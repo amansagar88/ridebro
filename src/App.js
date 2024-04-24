@@ -14,6 +14,8 @@ import axios from "axios";
 export default function App() {
   const [data, setdate] = useState("");
 
+  axios.defaults.withCredentials=true;
+
   const getData = async()=>{
     const response = await axios.get("https://ridebrowithbackend.vercel.app/getData");
     setdate(response.data);
