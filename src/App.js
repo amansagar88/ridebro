@@ -17,7 +17,7 @@ export default function App() {
   axios.defaults.withCredentials=true;
 
   const getData = async()=>{
-    const response = await axios.get("https://ridebrowithbackend.vercel.app/getData");
+    const response = await axios.get("https://ridebrowithbackend.vercel.app");
     setdate(response.data);
   }
 
