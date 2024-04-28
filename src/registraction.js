@@ -1,78 +1,53 @@
 import React from "react";
 import "./registration.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import basestyle from "./Base.module.css";
 
 export default function Registration() {
+
   const navigate = useNavigate();
 
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [user, setUserDetails] = useState({
-    fname: "",
-    lname: "",
+  const [user, setUser] = useState({
+    name: "",
     email: "",
+    number: "",
+    gender: "",
     password: "",
     cpassword: "",
   });
 
+  let name, value;
+
   const changeHandler = (e) => {
-    const { name, value } = e.target;
-    setUserDetails({
-      ...user,
-      [name]: value,
-    });
-  };
+    name = e.target.name;
+    value = e.target.value;
+    setUser({...user, [name]: value});
+  }
 
-  const validateForm = (values) => {
-    const error = {};
-    const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.fname) {
-      error.fname = "First Name is required";
-    }
-    if (!values.lname) {
-      error.lname = "Last Name is required";
-    }
-    if (!values.email) {
-      error.email = "Email is required";
-    } else if (!regex.test(values.email)) {
-      error.email = "This is not a valid email format!";
-    }
-    if (!values.password) {
-      error.password = "Password is required";
-    } else if (values.password.length < 4) {
-      error.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 10) {
-      error.password = "Password cannot exceed more than 10 characters";
-    }
-    if (!values.cpassword) {
-      error.cpassword = "Confirm Password is required";
-    } else if (values.cpassword !== values.password) {
-      error.cpassword = "Confirm password and password should be same";
-    }
-    return error;
-  };
-  const signupHandler = (e) => {
+  const signupHandler = async (e) => {
     e.preventDefault();
-    setFormErrors(validateForm(user));
-    setIsSubmit(true);
-    // if (!formErrors) {
-    //   setIsSubmit(true);
-    // }
-  };
+    const {name, email, number, gender, password, cpassword} = user;
+    const res = await fetch("https://ridebrowithbackend.vercel.app/register", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name, email, number, gender, password, cpassword})
+    });
 
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(user);
-      axios.post("http://localhost:9002/signup/", user).then((res) => {
-        alert(res.data.message);
-        navigate("/login", { replace: true });
-      });
+    const data = await res.json();
+
+    if(data.status === 422){
+      window.alert("Invalid details");
+    }else if(data.status === 401){
+      window.alert("password ans confirm password  does not match")
+    }else if(data.status === 800){
+      window.alert("user already exist");
+    }else{
+      window.alert("Registration Successful!");
+      navigate('/login');
     }
-  }, [formErrors]);
+  }
   return (
     <>
       <div className="rMain">
@@ -87,18 +62,18 @@ export default function Registration() {
         <div className="mRight">
           <div className="formContainer">
             <h1>Create your account</h1>
-            <form className="Rform">
+            <form method="POST" className="Rform">
               <input
                 type="text"
-                name="fname"
-                id="fname"
+                name="name"
+                id="name"
                 placeholder="Full Name*"
                 onChange={changeHandler}
-                value={user.fname}
+                value={user.name}
               />
               <input
                 type="text"
-                name="numer"
+                name="number"
                 id="number"
                 placeholder="Mobile Number*"
                 onChange={changeHandler}
@@ -113,12 +88,14 @@ export default function Registration() {
                 value={user.email}
               />
               <select
+              name="gender"
+              id="gender"
               onChange={changeHandler}
               value={user.gender}
               >
                 <option value="0">Select Gender*</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
               </select>
               <input
                 type="password"
@@ -143,10 +120,6 @@ export default function Registration() {
                 Register
               </button>
             </form>
-            <p className={basestyle.error}>{formErrors.fname}</p>
-            <p className={basestyle.error}>{formErrors.email}</p>
-            <p className={basestyle.error}>{formErrors.password}</p>
-            <p className={basestyle.error}>{formErrors.cpassword}</p>
           </div>
         </div>
       </div>

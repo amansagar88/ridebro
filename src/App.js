@@ -12,18 +12,21 @@ import Searchride from "./searchride";
 import axios from "axios";
 
 export default function App() {
-  const [data, setdate] = useState("");
+  // const [data, setdate] = useState("");
 
-  axios.defaults.withCredentials=true;
+  // before hosting uncoment this part
+  // axios.defaults.withCredentials=true;
 
-  const getData = async()=>{
-    const response = await axios.get("https://ridebrowithbackend.vercel.app");
-    setdate(response.data);
-  }
+  // const getData = async()=>{
+  //   const response = await axios.get("http://localhost:5000/getData");
+  //   // before hosting  uncomment this part
+  //   // const response = await axios.get("https://ridebrowithbackend.vercel.app");
+  //   setdate(response.data);
+  // }
 
-  useEffect( () => {
-    getData();
-  }, []);
+  // useEffect( () => {
+  //   getData();
+  // }, []);
 
   return(
   <>
@@ -38,7 +41,7 @@ export default function App() {
       </Routes>
     </BrowserRouter>
     <Footer />
-    <div>{data}</div>
+    {/* <div>{data}</div> */}
   </>
   );
 }
