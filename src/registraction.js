@@ -32,7 +32,7 @@ export default function Registration() {
   const signupHandler = async (e) => {
     e.preventDefault();
     const { name, email, number, gender, password, cpassword } = user;
-    const res = await fetch(`${host}//register`, {
+    const res = await fetch(`${host}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
