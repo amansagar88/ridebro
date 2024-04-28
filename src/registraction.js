@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function Registration() {
 
+  const host = "https://ridebrowithbackend.vercel.app/";
+
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -29,7 +31,7 @@ export default function Registration() {
   const signupHandler = async (e) => {
     e.preventDefault();
     const {name, email, number, gender, password, cpassword} = user;
-    const res = await fetch("https://ridebrowithbackend.vercel.app/register", {
+    const res = await fetch( `${host}/register`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name, email, number, gender, password, cpassword})
