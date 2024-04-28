@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeroSection from "./components/Body/herosection";
-import Footer from "./components/footer/footer";
 import Registration from "./registraction";
 import Login from "./login";
 import Createride from "./createride";
 import Searchride from "./searchride";
-import axios from "axios";
 
 export default function App() {
   // const [data, setdate] = useState("");
@@ -40,8 +38,6 @@ export default function App() {
         <Route path="/searchride" element={<Searchride />} />
       </Routes>
     </BrowserRouter>
-    <Footer />
-    {/* <div>{data}</div> */}
   </>
   );
 }

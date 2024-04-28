@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 export default function Registration() {
 
-  const host = "https://ridebrowithbackend.vercel.app/";
+  const host = "http://localhost:5000"
+
+  // const host = "https://ridebrowithbackend.vercel.app/";
 
   const navigate = useNavigate();
 

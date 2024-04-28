@@ -17,7 +17,6 @@
 .contact-area p{
     padding: 2rem;
     text-align: justify;
-    /* text-align: center; */
 }
 
 .img-area img{
@@ -28,6 +27,64 @@
 
 .mobile-contant-area{
     display: none;
+}
+
+.aboutMain{
+    width: 100dvw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10dvh;
+    margin-bottom: 25dvh;
+}
+
+.aboutLeft{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5dvw;
+    font-size: 20px;
+}
+
+.aboutLeft h1{
+    margin-bottom: 3dvh;
+    text-align: left;
+}
+
+.aboutLeft p{
+    padding: 2dvh;
+    text-align: left;
+}
+
+.aboutRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.upper_image{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5dvh;
+}
+
+.about_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24dvw;
+    height: 24dvh;
+}
+
+#third_image{
+    margin-top: 5dvh;
+}
+
+.aboutRight img{
+    height: 25dvh;
+    object-fit: contain;
 }
 
 @media screen and (max-width: 768px) {
@@ -49,11 +106,34 @@
     .mobile-contant-area p{
         padding: 1.5rem;
         text-align: justify;
-        /* text-align: center; */
     }
 
-    .mbutton{
-        z-index: 10;
-        position: relative;
+    .aboutMain{
+        grid-template-columns: 1fr;
+        margin-bottom: 3dvh;
+    }
+
+    .aboutLeft p{
+        font-size: 15px;
+    }
+
+    .aboutRight{
+        margin-bottom: 10dvh;
+    }
+
+    .upper_image{
+        grid-template-columns: 1fr;
+        row-gap: 2dvh;
+    }
+
+    #third_image{
+        margin-top: 2dvh;
+    }
+
+    .aboutRight img{
+        width: 35dvh;
+        height: 35dvh;
+        object-fit: contain;
     }
 }
+
