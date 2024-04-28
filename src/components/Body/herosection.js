@@ -56,7 +56,7 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="aboutLeft">
-          <h1>Safety for all</h1>
+          <h1>Safety For All.</h1>
           <p>
             At Ride Bro the well-being of our customers is above everything
             else. We are constantly in pursuit of enhancing our safety measures
