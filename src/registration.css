@@ -40,13 +40,7 @@
     margin-bottom: 5dvh;
 }
 
-.formContainer input{
-    border-radius: 5dvw;
-    padding-left: 1dvw;
-    height: 5dvh;
-}
-
-.formContainer select{
+.formContainer input, select{
     border-radius: 5dvw;
     padding-left: 1dvw;
     height: 5dvh;
@@ -63,6 +57,50 @@
     row-gap: 1cm;
 }
 
-/* .formContainer img{
-    height: 10dvh;
-} */
+.mobile_link{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .rMain{
+        width: 100dvw;
+        background: none;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .Rform{
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1cm;
+    }
+
+    .mLeft{
+        display: none;
+    }
+
+    .formContainer{
+      padding: 1dvw;
+    }
+
+    .formContainer input{
+        padding-left: 3dvw;
+        height: 5dvh;
+        width: 80dvw;
+    }
+
+    .formContainer select{
+        width: 80dvw;
+        padding-left: 3dvw;
+    }
+
+    .mobile_link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 3dvh;
+    }
+}
+

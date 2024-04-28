@@ -56,12 +56,12 @@
     .Lform input, select{
         border-radius: 5dvw;
         padding-left: 5dvw;
-        width: 60dvw;
+        width: 70dvw;
         height: 5dvh;
     }
 
     .Lform button{
-        width: 60dvw;
+        width: 70dvw;
     }
 
     .sdown{
@@ -76,7 +76,7 @@
 
     .sRight img{
         margin-left: 0;
-        height: 50dvh;
+        height: 35dvh;
         width: 100dvw;
     }
 }

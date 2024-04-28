@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Registration() {
-
-  const host = "http://localhost:5000"
+  const host = "http://localhost:5000";
 
   // const host = "https://ridebrowithbackend.vercel.app/";
 
@@ -27,31 +26,38 @@ export default function Registration() {
   const changeHandler = (e) => {
     name = e.target.name;
     value = e.target.value;
-    setUser({...user, [name]: value});
-  }
+    setUser({ ...user, [name]: value });
+  };
 
   const signupHandler = async (e) => {
     e.preventDefault();
-    const {name, email, number, gender, password, cpassword} = user;
-    const res = await fetch( `${host}/register`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name, email, number, gender, password, cpassword})
+    const { name, email, number, gender, password, cpassword } = user;
+    const res = await fetch(`${host}/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        number,
+        gender,
+        password,
+        cpassword,
+      }),
     });
 
     const data = await res.json();
 
-    if(data.status === 422){
+    if (data.status === 422) {
       window.alert("Invalid details");
-    }else if(data.status === 401){
-      window.alert("password ans confirm password  does not match")
-    }else if(data.status === 800){
+    } else if (data.status === 401) {
+      window.alert("password ans confirm password  does not match");
+    } else if (data.status === 800) {
       window.alert("user already exist");
-    }else{
+    } else {
       window.alert("Registration Successful!");
-      navigate('/login');
+      navigate("/login");
     }
-  }
+  };
   return (
     <>
       <div className="rMain">
@@ -92,10 +98,10 @@ export default function Registration() {
                 value={user.email}
               />
               <select
-              name="gender"
-              id="gender"
-              onChange={changeHandler}
-              value={user.gender}
+                name="gender"
+                id="gender"
+                onChange={changeHandler}
+                value={user.gender}
               >
                 <option value="0">Select Gender*</option>
                 <option value="Male">Male</option>
@@ -126,6 +132,12 @@ export default function Registration() {
             </form>
           </div>
         </div>
+      </div>
+      <div className="mobile_link">
+        <h4>Already have an account.</h4>
+        <Link to="/login" className="btn btn-primary mbutton">
+          Login
+        </Link>
       </div>
     </>
   );

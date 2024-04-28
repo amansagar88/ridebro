@@ -10,7 +10,36 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.Lright button{
-    /* width: 5dvw; */
-    /* justify-self: center; */
+.rMain img{
+    height: 15dvw;
+    margin-left: none;
+}
+
+@media screen and (max-width: 768px) {
+    .rMain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rMain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rMain img{
+        display: none;
+    }
+
+    .Lform{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 3dvh;
+    }
+
+    .formContainer{
+        padding: 1dvw;
+    }
+    
 }

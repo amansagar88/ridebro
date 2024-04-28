@@ -69,6 +69,12 @@ export default function Registration() {
           <img src={require("./images/1.png")} alt="main-img" />
         </div>
       </div>
+      <div className="mobile_link">
+        <h4>Already have an account.</h4>
+        <Link to="/registration" className="btn btn-primary mbutton">
+          Register
+        </Link>
+      </div>
     </>
   );
 }
