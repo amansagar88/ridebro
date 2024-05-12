@@ -1,9 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar(isLoggedIn) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    if(isLoggedIn.isLoggedIn){
+      localStorage.clear();
+      window.location.href = "/createride";
+    }
+    else{
+      navigate('/login');
+    }
+  }
+
   return (
     <>
       <div className="Nav-Bar">
@@ -35,11 +47,9 @@ export default function NavBar() {
           </ul>
         </div>
         <div className="login-button">
-          <Link to="/login">
-            <button type="button" className="btn btn-primary">
-              LOGIN
+            <button type="button" className="btn btn-primary" onClick={logout}>
+              {isLoggedIn.isLoggedIn? 'Logout' : 'Login'}
             </button>
-          </Link>
         </div>
       </div>
       {/* mobile nav bar */}
@@ -81,11 +91,9 @@ export default function NavBar() {
               </li>
               <li>
                 <div className="login-button">
-                  <Link className="nav-link" to="/login">
-                    <button type="button" className="btn btn-primary">
-                      LOGIN
+                    <button type="button" className="btn btn-primary nav-link" onClick={logout}>
+                    {isLoggedIn? 'Logout' : 'Login'}
                     </button>
-                  </Link>
                 </div>
               </li>
             </ul>

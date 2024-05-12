@@ -1,50 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./searchride.css";
+import createstyle from "./search.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Searchride() {
+  const [data, setData] = useState([]);
+  const [slstart, setsLstart] = useState('');
+  const [slend, setsLend] = useState('');
+  const host = "http://localhost:5000";
+
+
+  useEffect(() => {
+    fetch(`${host}/getrides`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
   return (
     <>
-      <div className="sMain">
-        <h1>Go everywhere with Ride Bro</h1>
-        <p>"Every shared ride is a new story on wheels."</p>
-        <div className="sdown">
-          <div className="sLeft">
-            <h5>Request a Ride, Hop in and Go</h5>
-            <div className="sForm">
-              <form className="Lform">
-                <input
-                  type="lstart"
-                  name="lstart"
-                  id="lstart"
-                  placeholder="Enter location*"
-                />
-                <input
-                  type="lend"
-                  name="lend"
-                  id="lend"
-                  placeholder="Enter destination*"
-                />
-                <select name="Npassenger" id="Npassenger">
-                  <option value="0">No. of passenger*</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-                <label for="Date and time"><h6>Choose Date and time</h6></label>
-                <input
-                  type="datetime-local"
-                  id="Dateandtime"
-                  name="dateandtime"
-                />
-                <button className="btn btn-primary mbutton">
-                  Search for avalaible rides
-                </button>
-              </form>
+      <div className={createstyle.App}>
+        <div className="search">
+          <h5 style={{color: 'white'}}>Search Rides</h5>
+          <form method="POST">
+            <input
+              type="lstart"
+              name="lstart"
+              id="lstart"
+              onChange={(e) => setsLstart(e.target.value)}
+              placeholder="Enter location*"
+            />
+            <input
+              type="lend"
+              name="lend"
+              id="lend"
+              onChange={(e) => setsLend(e.target.value)}
+              placeholder="Enter destination*"
+            />
+          </form>
+        </div>
+        <div className="rides">
+         {data.filter((i) => {
+          return (
+            slstart.toLowerCase() === '' ? i : i.lstart.toLowerCase().includes(slstart)
+            // slend.toLowerCase() === '' ? i : i.lend.toLowerCase().includes(slend)
+        );
+         }).map((i) => {
+          return (
+            <div className="ride_card" key={i._id}>
+            <div className="ride_details">
+              <div className="card_left">
+                <h4>From: {i.lstart}</h4>
+                <h4>To: {i.lend}</h4>
+              </div>
+              <div className="card_right">
+                <h4>Cost: {i.cost}</h4>
+                <h4>Seats: {i.Npassenger}</h4>
+              </div>
+            </div>
+            <div className="user_details">
+              <h5>Name: {i.name}</h5>
+              <h5>Mobile No: {i.number}</h5>
             </div>
           </div>
-          <div className="sRight">
-            <img src={require("./images/2.jpeg")} alt="main-img" />
-          </div>
+          );
+         })}
         </div>
       </div>
     </>

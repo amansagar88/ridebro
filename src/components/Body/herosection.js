@@ -4,11 +4,28 @@ import "./herosection.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/footer.js";
 
-export default function HeroSection() {
+export default function HeroSection(props) {
   return (
     <>
       <div className="main-desktop-body">
-        <div className="contact-area">
+        {props.isLoggedIn?
+         <div className="AfterLoginMain">
+          <h1>Welcome {props.username}</h1>
+          <h2>Les's Make Your First Ride</h2>
+          <div className="log_btn">
+          <Link to="/createride">
+            <button type="button" className="btn btn-primary">
+              Publish your Ride
+            </button>
+          </Link>
+          <Link to="/searchride">
+            <button type="button" className="btn btn-primary">
+              Search for a Ride
+            </button>
+          </Link>
+          </div>
+         </div>: 
+          <div className="contact-area">
           <h1>Share the Ride, Share the Future</h1>
           <p>
             Welcome to our ride-sharing platform, where convenience meets
@@ -23,6 +40,7 @@ export default function HeroSection() {
             </button>
           </Link>
         </div>
+        }
         <div className="img-area">
           <img src={require("./images/main.jpg")} alt="main-img" />
         </div>

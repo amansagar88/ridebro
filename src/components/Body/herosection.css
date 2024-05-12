@@ -87,6 +87,20 @@
     object-fit: contain;
 }
 
+.AfterLoginMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.log_btn{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1dvw;
+}
+
 @media screen and (max-width: 768px) {
     .main-desktop-body{
         display: none;

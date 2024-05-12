@@ -1,80 +1,114 @@
 import React from "react";
 import "./registration.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import basestyle from "./Base.module.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function Registration() {
+export default function Login(isLoggedIn) {
+  const host = "http://localhost:5000";
 
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    number: "",
-    gender: "",
-    password: "",
-    cpassword: "",
-  });
+  const navigate = useNavigate();
 
-  const changeHandler = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  }
+  const LoginHandler = async (e) => {
+    e.preventDefault();
+    if (isLoggedIn.isLoggedIn) {
+      localStorage.clear();
+      window.location.href = "/createride";
+    } else {
+      const res = await fetch(`${host}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-  const LoginHandler = (e) => {
-    
-  }
+      const data = await res.json();
+      if (res.status === 400 || !data) {
+        toast.error('Invalid Email Id or Password', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      } else {
+        if (res.status === 200) {
+          // Save the auth token and redirect
+          console.log(data);
+          const { token } = data;
+          localStorage.setItem("token", token);
+          toast.success('Logged In Successfully', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            setTimeout(() => {
+              navigate('/');
+              window.location.reload();
+            }, 2500); 
+        } else {
+          toast.error('Something Went wrong please try again', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        }
+      }
+    }
+  };
 
   return (
     <>
-      <div className="rMain">
-        <div className="mLeft">
-          <h1>Welcome</h1>
-          <p>You are some steps away from becoming a part of our community.</p>
-          <h6>New Here...</h6>
-          <Link to="/registration" className="btn btn-primary mbutton">
-            Sign Up
-          </Link>
-        </div>
-        <div className="mRight Lright">
-          <div className="formContainer">
-            <div className="LHeader">
-              <h1 id="header">Login</h1>
-            </div>
-            <form className="Lform">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email*"
-                onChange={changeHandler}
-                value={user.email}
-              />
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password*"
-                onChange={changeHandler}
-                value={user.password}
-              />
-              <button
-                className="btn btn-primary mbutton"
-                onClick={LoginHandler}
-              >
-                Login
-              </button>
-            </form>
-          </div>
-          <img src={require("./images/1.png")} alt="main-img" />
-        </div>
+    <div className={basestyle.App}>
+      <div className="login">
+        <form method="POST">
+          <h1>Login</h1>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email*"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password*"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className={basestyle.button_common} onClick={LoginHandler}>
+            Login
+          </button>
+        </form>
+        <Link to="/registration">Not yet registered? Register Now</Link>
       </div>
-      <div className="mobile_link">
-        <h4>Already have an account.</h4>
-        <Link to="/registration" className="btn btn-primary mbutton">
-          Register
-        </Link>
       </div>
+      <ToastContainer />
     </>
   );
 }

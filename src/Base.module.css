@@ -1,0 +1,28 @@
+.button_common {
+    background-color: blue;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-size: 22px;
+    border-radius: 15px;
+    margin: 1rem;
+    width: 90%;
+}
+.error {
+    color: red;
+    text-align: left;
+    margin: auto;
+    font-size: 16px;
+    padding: 0px 1rem;
+}
+
+.App {
+    display: flex;
+    width: 100vw;
+    height: 90dvh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
+  }

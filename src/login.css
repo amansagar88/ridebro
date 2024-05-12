@@ -1,45 +1,21 @@
-.Lform{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 3dvh;
-    padding: 5dvh 0dvh 5dvh 0dvh;
+.login {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgb(0 0 10 / 64%), 0 8px 16px rgb(0 10 0 / 34%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
 }
 
-.Lright{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.rMain img{
-    height: 15dvw;
-    margin-left: none;
-}
-
-@media screen and (max-width: 768px) {
-    .rMain{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .rMain{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .rMain img{
-        display: none;
-    }
-
-    .Lform{
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 3dvh;
-    }
-
-    .formContainer{
-        padding: 1dvw;
-    }
-    
+.login > form input {
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+    outline: none;
+    color: #1d2129;
+    margin: 2% 0;
+    width: 90%;
+    padding: 1dvw;
+    font-size: 16px;
 }
